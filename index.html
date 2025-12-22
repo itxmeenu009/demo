@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://i.postimg.cc/q7wfDfpq/Logo.png" type="icon/png">
+    <title>Today's Blog</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
+    
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://i.postimg.cc/q7wfDfpq/Logo.png" alt="Logo" class="logo-img">
+            TODAY'S BLOG
+        </div>
+        <div id="authActions">
+            <button id="loginOpenBtn" class="admin-btn">Admin Login</button>
+            <button id="logoutBtn" class="admin-btn" style="display:none;" onclick="handleLogout()">Logout</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="./All flags of the world in one flag waving in the wind - 4K UHD_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay">
+        <h1>Welcome to Today's Blog</h1>
+        <div class="hero-subtext">
+            <span>Connect with</span>
+            <div class="flag-window">
+                <div class="flag-strip">
+                    <span class="fi fi-pk"></span><span class="fi fi-us"></span>
+                    <span class="fi fi-gb"></span><span class="fi fi-ca"></span>
+                    <span class="fi fi-au"></span><span class="fi fi-de"></span>
+                    <span class="fi fi-fr"></span><span class="fi fi-it"></span>
+                    <span class="fi fi-es"></span><span class="fi fi-jp"></span>
+                    <span class="fi fi-cn"></span><span class="fi fi-in"></span>
+                    <span class="fi fi-br"></span><span class="fi fi-ru"></span>
+                    <span class="fi fi-sa"></span><span class="fi fi-ae"></span>
+                    <span class="fi fi-tr"></span><span class="fi fi-eg"></span>
+                    <span class="fi fi-za"></span><span class="fi fi-mx"></span>
+                    <span class="fi fi-id"></span><span class="fi fi-my"></span>
+                    <span class="fi fi-kr"></span><span class="fi fi-nl"></span>
+                    <span class="fi fi-se"></span><span class="fi fi-ch"></span>
+                    <span class="fi fi-no"></span><span class="fi fi-dk"></span>
+                    <span class="fi fi-sg"></span><span class="fi fi-nz"></span>
+                    <span class="fi fi-pk"></span>
+                </div>
+            </div>
+            <span>via Today's Blog</span>
+        </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="adminPosting" class="admin-posting">
+            <h2 style="color: var(--navy); margin-top:0;"><i class="ri-quill-pen-line"></i> Create a Post</h2>
+            <div class="form-group">
+                <input type="text" id="postAuthorName" placeholder="Writer Name (e.g. Admin)">
+            </div>
+            <div class="form-group">
+                <input type="text" id="postTitle" placeholder="Enter post title...">
+            </div>
+            <div class="form-group">
+                <input type="text" id="postImageUrl" placeholder="Paste Image URL">
+            </div>
+            <div class="form-group">
+                <textarea id="postText" rows="5" placeholder="What's the update?"></textarea>
+            </div>
+            <button class="btn-submit" onclick="submitPost()">Upload Post</button>
+            <div id="postStatus"></div>
+        </section>
+
+        <div id="postsFeed">
+            <p style="text-align: center;">Loading posts...</p>
+        </div>
+    </div>
+
+    <section class="contact-section">
+        <h2><i class="ri-mail-send-line"></i> Send us Feedback</h2>
+        <div class="contact-form">
+            <input type="text" id="fbName" placeholder="Your Name" required>
+            <input type="email" id="fbEmail" placeholder="Your Email" required>
+            <textarea id="fbMessage" rows="4" placeholder="Your Message" required></textarea>
+            <button class="btn-submit" onclick="submitFeedback()">
+             Send Message  <i class="ri-send-plane-2-fill"></i>
+            </button><br>
+            <div id="fbStatus" style="margin-top:10px;"></div>
+        </div>
+    </section>
+    
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2 style="text-align: center; color: var(--navy);"><i class="ri-admin-fill"></i> Admin Login</h2>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="loginEmail" placeholder="admin@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPass" placeholder="••••••••">
+            </div>
+            <button class="btn-submit" onclick="handleLogin()">Login</button>
+            <div id="loginError" style="color: red; margin-top: 10px; display: none; text-align: center;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Today's Blog</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/185AGL7UBa/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
+                    <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="https://www.instagram.com/toda_ysblog?utm_source=qr&igsh=eXdzZ3N6ODQweGlh" target="_blank" aria-label="Instagram">
+                    <i class="ri-instagram-fill"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="index_js.js"></script>
+</body>
+</html>
